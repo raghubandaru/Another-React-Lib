@@ -20,7 +20,9 @@
     "test:watch": "nwb test-react --server",
     "doc": "react-doc-generator ./src -o ./docs/documentation.md"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-modal": "^3.10.1"
+  },
   "peerDependencies": {
     "react": "16.x"
   },
