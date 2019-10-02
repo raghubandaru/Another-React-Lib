@@ -14,6 +14,8 @@ import Collapse from '../../src/Collapse/Collapse';
 import Tabs from '../../src/Tabs/Tabs';
 import Tab from '../../src/Tabs/Tab';
 
+import Modal from '../../src/Modal/Modal';
+
 const Tab1 = () => {
   return <div>Tab1</div>
 }
@@ -25,7 +27,13 @@ const Tab2 = () => {
 
 
 class Demo extends Component {
-  
+  state = {
+    isModalOpen: false
+  }
+
+  handleOpenModal = () => this.setState({ isModalOpen: true });
+
+  handleCloseModal = () => this.setState({ isModalOpen: false });
 
   render() {
     const handleChange =  ()=> {
@@ -33,6 +41,13 @@ class Demo extends Component {
     };
     return(
       <div>
+        <Button text={'Open Modal'} size='medium' styles={{color:'white'}} buttonColor='blue' handleClick = {this.handleOpenModal} />
+        {this.state.isModalOpen && (<Modal
+          onClose={this.handleCloseModal}
+        >
+          <h1>Poratl Modal Dialog</h1>
+          <p>All Children passed to Modal goes inside Dialog</p>
+        </Modal>)}
         <h2>Collapse Component</h2>
 
         <Collapse collapseHeader={'Click me'} collapseBody={'Sup, dude!'}/>
