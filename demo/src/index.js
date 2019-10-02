@@ -24,8 +24,6 @@ const Tab2 = () => {
   return <div>Tab2</div>
 }
 
-
-
 class Demo extends Component {
   state = {
     isModalOpen: false
@@ -44,6 +42,7 @@ class Demo extends Component {
         <Button text={'Open Modal'} size='medium' styles={{color:'white'}} buttonColor='blue' handleClick = {this.handleOpenModal} />
         {this.state.isModalOpen && (<Modal
           onClose={this.handleCloseModal}
+          modal= {document.querySelector('#demo')}
         >
           <h1>Poratl Modal Dialog</h1>
           <p>All Children passed to Modal goes inside Dialog</p>
